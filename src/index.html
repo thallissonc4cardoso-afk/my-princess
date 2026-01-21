@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+  <meta charset="UTF-8">
+  <title> CARTÃO DE FELIZ ANIVERSARIO </title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<div class="hearts"></div>
+
+<div class="card">
+		<div class="imgBox">
+			<div class="bark"></div>
+			<img src="https://cdn.discordapp.com/attachments/1456023122426728458/1463330156159701033/Picsart_26-01-20_21-30-13-094.jpg?ex=69716fe8&is=69701e68&hm=825e90543c0e4c26428894fcdaf7ffa3417a94f0f31e86b8734e63a6bc88043e&">
+		</div>
+		<div class="details">
+			<h4 class="color3">✨FELIZ ANIVERSARIO AMOR✨</h2>
+			<!--h4 class="color2 margin"></h3> -->
+			<p></p>Feliz aniversário de 17 anos, amor. Te desejo tudo de bom e que sua vida seja repleta de felicidade (e espero estar incluído nessa felicidade 😅). Eu te amo muito, minha princesa💗. Essa data significa demais pra mim. Com muito carinho eu faço esse presente pra você, minha linda, maravilhosa e perfeita. Eu te amo pra caralho, bb💖
+			<p class="text-right">Beijo na bunda</p>
+			<p class="text-right">EU TE AMO💓</p>
+		</div>
+	</div>
+
+<audio id="myAudio" autoplay loop>
+  <source src="./Adriana Calcanhotto - Fico Assim Sem Você (Video Clipe (Extras)) - acalcanhottoVEVO (youtube).mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<div class="music-controls">
+  <button id="playBtn">▶️ Play</button>
+  <button id="pauseBtn">⏸️ Pause</button>
+</div>
+
+<script>
+  const audio = document.getElementById('myAudio');
+  const playBtn = document.getElementById('playBtn');
+  const pauseBtn = document.getElementById('pauseBtn');
+  const volumeSlider = document.getElementById('volumeSlider');
+
+  playBtn.addEventListener('click', () => {
+    audio.play();
+  });
+
+  pauseBtn.addEventListener('click', () => {
+    audio.pause();
+  });
+
+  volumeSlider.addEventListener('input', () => {
+    audio.volume = volumeSlider.value;
+  });
+
+  // Hearts falling animation
+  const heartsContainer = document.querySelector('.hearts');
+
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML = '❤️';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = Math.random() * 3 + 2 + 's'; // 2-5 seconds
+    heartsContainer.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 5000);
+  }
+
+  createHeart(); // Start immediately
+  setInterval(createHeart, 300); // Create a heart every 300ms
+</script>
+
+</body>
+</html>
