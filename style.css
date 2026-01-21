@@ -122,91 +122,165 @@ h4 {
 	text-align: right;
 }
 
-.music-controls {
-	position: absolute;
-	bottom: 20px;
-	left: 50%;
-	transform: translateX(-50%);
-	display: flex;
-	align-items: center;
-	gap: 15px;
-	background-color: rgba(255, 255, 255, 0.9);
-	padding: 15px 20px;
-	border-radius: 25px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.music-controls button {
-	padding: 12px 24px;
-	font-size: 16px;
-	cursor: pointer;
-	border: none;
-	border-radius: 20px;
-	background: linear-gradient(45deg, #3498db, #9b59b6);
-	color: white;
-	transition: all 0.3s ease;
-	font-weight: bold;
-}
-
-.music-controls button:hover {
-	background: linear-gradient(45deg, #2980b9, #8e44ad);
-	transform: translateY(-2px);
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.music-controls input[type="range"] {
-	-webkit-appearance: none;
-	appearance: none;
-	width: 120px;
-	height: 6px;
-	background: #ddd;
-	outline: none;
-	border-radius: 3px;
-}
-
-.music-controls input[type="range"]::-webkit-slider-thumb {
-	-webkit-appearance: none;
-	appearance: none;
-	width: 20px;
-	height: 20px;
-	background: linear-gradient(45deg, #3498db, #9b59b6);
-	border-radius: 50%;
-	cursor: pointer;
-}
-
-.music-controls input[type="range"]::-moz-range-thumb {
-	width: 20px;
-	height: 20px;
-	background: linear-gradient(45deg, #3498db, #9b59b6);
-	border-radius: 50%;
-	cursor: pointer;
-	border: none;
-}
-
 .hearts {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	pointer-events: none;
-	z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
 }
 
 .heart {
-	position: absolute;
-	font-size: 24px;
-	color: #e74c3c;
-	animation: fall linear infinite;
+  position: absolute;
+  font-size: 36px;
+  color: #ff69b4;
+  animation: fall linear infinite;
+  animation-duration: 5s;
+  animation-delay: calc(var(--delay) * 1s);
 }
 
+.heart:nth-child(1) { --delay: 0; left: 5%; }
+.heart:nth-child(2) { --delay: 0.5; left: 15%; }
+.heart:nth-child(3) { --delay: 1; left: 25%; }
+.heart:nth-child(4) { --delay: 1.5; left: 35%; }
+.heart:nth-child(5) { --delay: 2; left: 45%; }
+.heart:nth-child(6) { --delay: 2.5; left: 55%; }
+.heart:nth-child(7) { --delay: 3; left: 65%; }
+.heart:nth-child(8) { --delay: 3.5; left: 75%; }
+.heart:nth-child(9) { --delay: 4; left: 85%; }
+.heart:nth-child(10) { --delay: 4.5; left: 95%; }
+.heart:nth-child(11) { --delay: 5; left: 10%; }
+.heart:nth-child(12) { --delay: 5.5; left: 20%; }
+.heart:nth-child(13) { --delay: 6; left: 30%; }
+.heart:nth-child(14) { --delay: 6.5; left: 40%; }
+.heart:nth-child(15) { --delay: 7; left: 50%; }
+.heart:nth-child(16) { --delay: 7.5; left: 60%; }
+.heart:nth-child(17) { --delay: 8; left: 70%; }
+.heart:nth-child(18) { --delay: 8.5; left: 80%; }
+.heart:nth-child(19) { --delay: 9; left: 90%; }
+.heart:nth-child(20) { --delay: 9.5; left: 0%; }
+
 @keyframes fall {
-	0% {
-		transform: translateY(-100px) rotate(0deg);
-		opacity: 1;
-	}
-	100% {
-		transform: translateY(100vh);
-		opacity: 0;
-	}
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+.card:hover .confetti {
+  opacity: 1;
+}
+
+.confetti-piece {
+  position: absolute;
+  font-size: 24px;
+  animation: burst 2s ease-out forwards;
+  animation-delay: calc(var(--delay) * 0.1s);
+}
+
+.confetti-piece:nth-child(1) { --delay: 0; --x: 50px; --y: -100px; }
+.confetti-piece:nth-child(2) { --delay: 1; --x: -50px; --y: -100px; }
+.confetti-piece:nth-child(3) { --delay: 2; --x: 100px; --y: 50px; }
+.confetti-piece:nth-child(4) { --delay: 3; --x: -100px; --y: 50px; }
+.confetti-piece:nth-child(5) { --delay: 4; --x: 0px; --y: 150px; }
+.confetti-piece:nth-child(6) { --delay: 5; --x: 150px; --y: 0px; }
+.confetti-piece:nth-child(7) { --delay: 6; --x: -150px; --y: 0px; }
+.confetti-piece:nth-child(8) { --delay: 7; --x: 75px; --y: -150px; }
+.confetti-piece:nth-child(9) { --delay: 8; --x: -75px; --y: -150px; }
+.confetti-piece:nth-child(10) { --delay: 9; --x: 0px; --y: -200px; }
+.confetti-piece:nth-child(11) { --delay: 10; --x: 120px; --y: -80px; }
+.confetti-piece:nth-child(12) { --delay: 11; --x: -120px; --y: -80px; }
+.confetti-piece:nth-child(13) { --delay: 12; --x: 80px; --y: 120px; }
+.confetti-piece:nth-child(14) { --delay: 13; --x: -80px; --y: 120px; }
+.confetti-piece:nth-child(15) { --delay: 14; --x: 0px; --y: -250px; }
+
+@keyframes burst {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x, 0), var(--y, 0)) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.music-controls {
+  position: absolute;
+  top: calc(50% + 300px); /* Moved further down */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+  padding: 15px 20px;
+  border-radius: 25px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.music-controls button {
+  background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.music-controls button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.music-controls input[type="range"] {
+  width: 120px;
+  height: 6px;
+  border-radius: 5px;
+  background: #ddd;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.music-controls input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.music-controls input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
